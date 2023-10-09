@@ -4,6 +4,7 @@ import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 import org.firstinspires.ftc.teamcode.drive.BaseMecanumDrive;
 import org.firstinspires.ftc.teamcode.util.Encoder;
@@ -22,6 +23,8 @@ public class LocalizationTestMechanum extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         BaseMecanumDrive drive = new BaseMecanumDrive(hardwareMap);
+        DcMotorEx leftIntake = hardwareMap.get(DcMotorEx.class, "leftIntake");
+        DcMotorEx rightIntake = hardwareMap.get(DcMotorEx.class, "rightIntake");
 
         /*
         leftEncoder = new Encoder(hardwareMap.get(DcMotorEx.class, "leftFront"));
@@ -31,6 +34,8 @@ public class LocalizationTestMechanum extends LinearOpMode {
 
 
         drive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        leftIntake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rightIntake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         waitForStart();
 
@@ -44,6 +49,15 @@ public class LocalizationTestMechanum extends LinearOpMode {
             );
 
             drive.update();
+
+            if (gamepad1.x) {
+                telemetry.addLine("X");
+                leftIntake.setPower(1);
+                rightIntake.setPower(1);
+            } else {
+                leftIntake.setPower(0);
+                rightIntake.setPower(0);
+            }
 
             Pose2d poseEstimate = drive.getPoseEstimate();
             telemetry.addData("x", poseEstimate.getX());
