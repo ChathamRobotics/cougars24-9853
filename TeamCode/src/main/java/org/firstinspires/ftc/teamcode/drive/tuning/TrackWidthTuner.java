@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.drive.opmode;
+package org.firstinspires.ftc.teamcode.drive.tuning;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
@@ -24,7 +24,7 @@ import org.firstinspires.ftc.teamcode.drive.BaseMecanumDrive;
  * accurate track width estimate is important or else the angular constraints will be thrown off.
  */
 @Config
-@Autonomous(group = "drive")
+@Autonomous(group = "tuning")
 public class TrackWidthTuner extends LinearOpMode {
     public static double ANGLE = 180; // deg
     public static int NUM_TRIALS = 5;

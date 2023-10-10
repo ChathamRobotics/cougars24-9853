@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.drive.opmode;
+package org.firstinspires.ftc.teamcode.drive.tuning;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -16,7 +16,7 @@ import org.firstinspires.ftc.teamcode.util.Encoder;
  * exercise is to ascertain whether the localizer has been configured properly (note: the pure
  * encoder localizer heading may be significantly off if the track width has not been tuned).
  */
-@TeleOp(group = "drive")
+@TeleOp(group = "tuning")
 public class LocalizationTestMechanum extends LinearOpMode {
     Encoder leftEncoder,rightEncoder,frontEncoder;
 
@@ -53,7 +53,7 @@ public class LocalizationTestMechanum extends LinearOpMode {
             if (gamepad1.x) {
                 telemetry.addLine("X");
                 leftIntake.setPower(1);
-                rightIntake.setPower(1);
+                rightIntake.setPower(-1);
             } else {
                 leftIntake.setPower(0);
                 rightIntake.setPower(0);

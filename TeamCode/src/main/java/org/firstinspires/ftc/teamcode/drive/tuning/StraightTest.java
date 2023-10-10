@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.drive.opmode;
+package org.firstinspires.ftc.teamcode.drive.tuning;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
@@ -15,7 +15,7 @@ import org.firstinspires.ftc.teamcode.drive.BaseMecanumDrive;
  * This is a simple routine to test translational drive capabilities.
  */
 @Config
-@Autonomous(group = "drive")
+@Autonomous(group = "tuning")
 public class StraightTest extends LinearOpMode {
     public static double DISTANCE = 60; // in
 

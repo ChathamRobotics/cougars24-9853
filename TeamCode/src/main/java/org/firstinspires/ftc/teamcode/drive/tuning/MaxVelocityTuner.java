@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.drive.opmode;
+package org.firstinspires.ftc.teamcode.drive.tuning;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
@@ -25,7 +25,7 @@ import java.util.Objects;
  * Further fine tuning of kF may be desired.
  */
 @Config
-@Autonomous(group = "drive")
+@Autonomous(group = "tuning")
 public class MaxVelocityTuner extends LinearOpMode {
     public static double RUNTIME = 2.0;
 

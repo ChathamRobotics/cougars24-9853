@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.drive.opmode;
+package org.firstinspires.ftc.teamcode.drive.tuning;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.geometry.Vector2d;
@@ -11,7 +11,7 @@ import org.firstinspires.ftc.teamcode.drive.BaseMecanumDrive;
 /*
  * This is an example of a more complex path to really test the tuning.
  */
-@Autonomous(group = "drive")
+@Autonomous(group = "tuning")
 public class SplineTest extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {

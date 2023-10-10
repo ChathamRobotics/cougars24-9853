@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.drive.opmode;
+package org.firstinspires.ftc.teamcode.drive.tuning;
 
 import com.acmerobotics.dashboard.config.Config;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
@@ -22,7 +22,7 @@ import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
  * These coefficients can be tuned live in dashboard.
  */
 @Config
-@Autonomous(group = "drive")
+@Autonomous(group = "tuning")
 public class FollowerPIDTuner extends LinearOpMode {
     public static double DISTANCE = 48; // in
 

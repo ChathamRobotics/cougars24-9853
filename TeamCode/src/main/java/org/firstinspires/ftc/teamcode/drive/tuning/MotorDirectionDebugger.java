@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.drive.opmode;
+package org.firstinspires.ftc.teamcode.drive.tuning;
 
 import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.dashboard.config.Config;
@@ -40,7 +40,7 @@ import org.firstinspires.ftc.teamcode.drive.BaseMecanumDrive;
  */
 @Disabled
 @Config
-@TeleOp(group = "drive")
+@TeleOp(group = "tuning")
 public class MotorDirectionDebugger extends LinearOpMode {
     public static double MOTOR_POWER = 0.7;
 
