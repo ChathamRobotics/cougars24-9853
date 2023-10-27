@@ -32,18 +32,7 @@ public class IntakeModule {
           * Toggle the intake
           * @param state what to change the state of the intake to (on = 1, off = 0, backwards = -1)
           */
-     public void toggle(int state)  {
-             if (state == 1)
-                {
-                     intake.setPower(1);
-                }
-             else if (state == 2)
-             {
-                 intake.setPower(-1);
-             }
-             else
-             {
-                intake.setPower(0);
-             }
+     public void toggle(float state)  {
+             intake.setPower(state);
          }
 }

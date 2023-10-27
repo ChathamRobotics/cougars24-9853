@@ -13,10 +13,10 @@ import java.util.List;
 public class LinearSlideModule {
     private static final int MAX_SLIDE_POS = 1500;
     private static final int SLIDE_MOTORS = 2;
-    private List<DcMotorEx> linearSlide = new ArrayList<>();
+    public List<DcMotorEx> linearSlide = new ArrayList<>();
 
     public LinearSlideModule(HardwareMap hwMap) {
-        List<DcMotorSimple.Direction> motorDirections = Arrays.asList(DcMotorSimple.Direction.FORWARD, DcMotorSimple.Direction.FORWARD, DcMotorSimple.Direction.FORWARD);
+        List<DcMotorSimple.Direction> motorDirections = Arrays.asList(DcMotorSimple.Direction.FORWARD, DcMotorSimple.Direction.REVERSE, DcMotorSimple.Direction.FORWARD);
 
         for(int i = 1; i <= SLIDE_MOTORS; i++) {
             DcMotorEx slideMotor = hwMap.get(DcMotorEx.class, "linearSlide" + i);
@@ -25,6 +25,7 @@ public class LinearSlideModule {
         }
 
         linearSlide.forEach(motor -> {
+            motor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         });
 
@@ -39,6 +40,7 @@ public class LinearSlideModule {
             if (power > 0) {
                 if (linearSlide.get(0).getCurrentPosition() < MAX_SLIDE_POS - 10) {
                     motor.setPower(power);
+                    motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
                 }
                 else {
                     motor.setTargetPosition(MAX_SLIDE_POS);
@@ -49,6 +51,7 @@ public class LinearSlideModule {
             else {
                 if (linearSlide.get(0).getCurrentPosition() > 10) {
                     motor.setPower(power);
+                    motor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
                 }
                 else {
                     motor.setTargetPosition(0);

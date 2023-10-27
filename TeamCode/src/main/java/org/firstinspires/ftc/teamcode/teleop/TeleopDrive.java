@@ -9,7 +9,7 @@ import org.firstinspires.ftc.teamcode.drive.FullMecanumDrive;
 import java.util.List;
 
 public class TeleopDrive extends FullMecanumDrive {
-    float speed = 0.5f;
+    public float speed = 0.5f;
     
     public TeleopDrive(HardwareMap hwMap, List<Module> modules, float setSpeed) {
         super(hwMap, modules);
