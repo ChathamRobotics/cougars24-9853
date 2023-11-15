@@ -23,19 +23,14 @@ public class LocalizationTestMechanum extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         BaseMecanumDrive drive = new BaseMecanumDrive(hardwareMap);
-        DcMotorEx leftIntake = hardwareMap.get(DcMotorEx.class, "leftIntake");
-        DcMotorEx rightIntake = hardwareMap.get(DcMotorEx.class, "rightIntake");
 
-        /*
         leftEncoder = new Encoder(hardwareMap.get(DcMotorEx.class, "leftFront"));
         rightEncoder = new Encoder(hardwareMap.get(DcMotorEx.class, "rightBack"));
         frontEncoder = new Encoder(hardwareMap.get(DcMotorEx.class, "leftBack"));
-*/
+
 
 
         drive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        leftIntake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rightIntake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         waitForStart();
 
@@ -50,21 +45,12 @@ public class LocalizationTestMechanum extends LinearOpMode {
 
             drive.update();
 
-            if (gamepad1.x) {
-                telemetry.addLine("X");
-                leftIntake.setPower(1);
-                rightIntake.setPower(-1);
-            } else {
-                leftIntake.setPower(0);
-                rightIntake.setPower(0);
-            }
-
             Pose2d poseEstimate = drive.getPoseEstimate();
             telemetry.addData("x", poseEstimate.getX());
             telemetry.addData("y", poseEstimate.getY());
             telemetry.addData("heading", poseEstimate.getHeading());
 
-            /*
+
             telemetry.addData("rawLCV", leftEncoder.getCorrectedVelocity());
             telemetry.addData("rawRCV", rightEncoder.getCorrectedVelocity());
             telemetry.addData("rawFCV", frontEncoder.getCorrectedVelocity());
@@ -78,7 +64,7 @@ public class LocalizationTestMechanum extends LinearOpMode {
             telemetry.addData("rawLP", leftEncoder.getCurrentPosition());
             telemetry.addData("rawRP", rightEncoder.getCurrentPosition());
             telemetry.addData("rawFP", frontEncoder.getCurrentPosition());
-*/
+
             telemetry.update();
         }
     }

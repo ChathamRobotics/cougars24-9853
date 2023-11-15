@@ -10,23 +10,24 @@ import org.firstinspires.ftc.teamcode.drive.StartPositions;
 
 import java.util.Collections;
 
-@Autonomous (name = "Just Park Blue Left")
-public class JustParkBlueLeft extends LinearOpMode {
+@Autonomous (name = "Spike Forward")
+public class SpikeForward extends LinearOpMode {
     private AutonDrive robot;
 
     @Override
-    public void runOpMode() {
+    public void runOpMode() throws InterruptedException {
         robot = new AutonDrive(hardwareMap, Collections.emptyList());
         Pose2d startPos = StartPositions.blueLeft;
 
         robot.setPoseEstimate(startPos);
 
         Trajectory traj1 = robot.trajectoryBuilder(startPos)
-                .lineTo(new Vector2d(7, -44))
+                .forward(28)
                 .build();
 
         waitForStart();
 
         robot.followTrajectory(traj1);
+        robot.intake.onForXSeconds(-0.2f, 1.5f);
     }
 }

@@ -19,8 +19,8 @@ public class MainTeleop extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            robot.intake.toggle(-gamepad2.left_stick_y);
-            robot.linearSlide.move(-gamepad2.right_stick_y * 0.5f);
+            robot.intake.setState(-gamepad2.left_stick_y);
+            robot.linearSlide.move(-gamepad2.right_stick_y * 0.5f, false);
             if (gamepad2.left_bumper) robot.claw.setState(0);
             if (gamepad2.right_bumper) robot.claw.setState(1);
             if (gamepad2.dpad_up) robot.arm.setState(1);
@@ -40,6 +40,10 @@ public class MainTeleop extends LinearOpMode {
             telemetry.addData("slide2Pos", robot.linearSlide.linearSlide.get(1).getCurrentPosition());
             telemetry.addData("slide1Pow", robot.linearSlide.linearSlide.get(0).getPower());
             telemetry.addData("slide2Pow", robot.linearSlide.linearSlide.get(1).getPower());
+            telemetry.addData(robot.motors.get(0).getDeviceName(), robot.motors.get(0).getCurrentPosition());
+            telemetry.addData(robot.motors.get(1).getDeviceName(), robot.motors.get(1).getCurrentPosition());
+            telemetry.addData(robot.motors.get(2).getDeviceName(), robot.motors.get(2).getCurrentPosition());
+            telemetry.addData(robot.motors.get(3).getDeviceName(), robot.motors.get(3).getCurrentPosition());
             telemetry.addData("slideJoystick", -gamepad2.right_stick_y * 0.5f);
             telemetry.update();
         }

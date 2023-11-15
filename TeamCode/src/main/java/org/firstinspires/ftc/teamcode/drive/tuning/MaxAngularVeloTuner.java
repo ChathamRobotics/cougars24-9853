@@ -28,7 +28,7 @@ public class MaxAngularVeloTuner extends LinearOpMode {
     public static double RUNTIME = 4.0;
 
     private ElapsedTime timer;
-    private double maxAngVelocity = 0.0;
+    private double maxAngVelocity = 0;
 
     @Override
     public void runOpMode() throws InterruptedException {
@@ -57,6 +57,9 @@ public class MaxAngularVeloTuner extends LinearOpMode {
 
             Pose2d poseVelo = Objects.requireNonNull(drive.getPoseVelocity(), "poseVelocity() must not be null. Ensure that the getWheelVelocities() method has been overridden in your localizer.");
 
+            telemetry.addData("poseVelo Heading", poseVelo.getHeading());
+            telemetry.addData("poseVelo Heading / ang velo max", Math.max(poseVelo.getHeading(), maxAngVelocity));
+            telemetry.update();
             maxAngVelocity = Math.max(poseVelo.getHeading(), maxAngVelocity);
         }
 

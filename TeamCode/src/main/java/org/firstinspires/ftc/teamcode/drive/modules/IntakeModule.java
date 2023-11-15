@@ -19,20 +19,21 @@ public class IntakeModule {
 
      /**
           * Turns intake on for a set number of seconds
+          * @param power Power to set intake to (on = 1, off = 0, backwards = -1)
           * @param time The amount of time that the intake is to be turned on for
           * @throws InterruptedException
           */
-     public void onForXSeconds(long time) throws InterruptedException {
-             intake.setPower(1);
-             Thread.sleep(time * 1000);
+     public void onForXSeconds(float power, float time) throws InterruptedException {
+             intake.setPower(power);
+             Thread.sleep((long) time * 1000);
              intake.setPower(0);
          }
 
      /**
-          * Toggle the intake
-          * @param state what to change the state of the intake to (on = 1, off = 0, backwards = -1)
+          * Sets the intake's power
+          * @param power Power to set intake to (on = 1, off = 0, backwards = -1)
           */
-     public void toggle(float state)  {
-             intake.setPower(state);
+     public void setState(float power)  {
+             intake.setPower(power);
          }
 }

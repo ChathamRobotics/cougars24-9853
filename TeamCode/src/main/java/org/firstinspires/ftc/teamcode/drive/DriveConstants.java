@@ -48,7 +48,7 @@ public class DriveConstants {
      */
     public static double WHEEL_RADIUS = 1.4763; // in
     public static double GEAR_RATIO = 0.09585062638384342; // output (wheel) speed / input (motor) speed
-    public static double TRACK_WIDTH = 15.25; // in
+    public static double TRACK_WIDTH = 12.65; // in
 
     /*
      * These are the feedforward parameters used to model the drive motor behavior. If you are using
@@ -56,9 +56,9 @@ public class DriveConstants {
      * motor encoders or have elected not to use them for velocity control, these values should be
      * empirically tuned.
      */
-    public static double kV = 1.0 / rpmToVelocity(MAX_RPM);
-    public static double kA = 0;
-    public static double kStatic = 0;
+    public static double kV = 0.013247358977060452;
+    public static double kA = 0.003;
+    public static double kStatic = 0.02;
 
     /*
      * These values are used to generate the trajectories for you robot. To ensure proper operation,
@@ -90,17 +90,17 @@ public class DriveConstants {
      */
     public static double MAX_VEL = 75.57329696096808;
     public static double MAX_ACCEL = 75.57329696096808;
-    public static double MAX_ANG_VEL = Math.toRadians(283.9364563772014);
-    public static double MAX_ANG_ACCEL = Math.toRadians(283.9364563772014);
+    public static double MAX_ANG_VEL = Math.toRadians(308.8168768748367);
+    public static double MAX_ANG_ACCEL = Math.toRadians(308.8168768748367);
 
 
     /*
      * Adjust the orientations here to match your robot. See the FTC SDK documentation for details.
      */
     public static RevHubOrientationOnRobot.LogoFacingDirection LOGO_FACING_DIR =
-            RevHubOrientationOnRobot.LogoFacingDirection.UP;
+            RevHubOrientationOnRobot.LogoFacingDirection.LEFT;
     public static RevHubOrientationOnRobot.UsbFacingDirection USB_FACING_DIR =
-            RevHubOrientationOnRobot.UsbFacingDirection.FORWARD;
+            RevHubOrientationOnRobot.UsbFacingDirection.UP  ;
 
 
     public static double encoderTicksToInches(double ticks) {

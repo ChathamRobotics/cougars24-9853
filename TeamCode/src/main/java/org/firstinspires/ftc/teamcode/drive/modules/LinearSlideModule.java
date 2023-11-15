@@ -16,7 +16,7 @@ public class LinearSlideModule {
     public List<DcMotorEx> linearSlide = new ArrayList<>();
 
     public LinearSlideModule(HardwareMap hwMap) {
-        List<DcMotorSimple.Direction> motorDirections = Arrays.asList(DcMotorSimple.Direction.FORWARD, DcMotorSimple.Direction.REVERSE, DcMotorSimple.Direction.FORWARD);
+        List<DcMotorSimple.Direction> motorDirections = Arrays.asList(DcMotorSimple.Direction.REVERSE, DcMotorSimple.Direction.FORWARD, DcMotorSimple.Direction.FORWARD);
 
         for(int i = 1; i <= SLIDE_MOTORS; i++) {
             DcMotorEx slideMotor = hwMap.get(DcMotorEx.class, "linearSlide" + i);
@@ -35,7 +35,7 @@ public class LinearSlideModule {
      * Moves the linear slide with a power
      * @param power Power to move the linear slide with
      */
-    public void move(float power) {
+    public void move(float power, boolean disableStop) {
         linearSlide.forEach(motor -> {
             if (power > 0) {
                 if (linearSlide.get(0).getCurrentPosition() < MAX_SLIDE_POS - 10) {
