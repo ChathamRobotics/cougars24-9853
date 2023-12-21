@@ -4,13 +4,11 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 public class ArmModule {
-    private Servo armLeft, armRight;
+    private Servo arm;
     public ArmModule(HardwareMap hwMap) {
-        armLeft = hwMap.get(Servo.class, "armLeft");
-        armLeft.scaleRange(0.66, 1);
+        arm = hwMap.get(Servo.class, "arm");
+        arm.scaleRange(0.58, 0.88);
 
-        armRight = hwMap.get(Servo.class, "armRight");
-        armRight.scaleRange(0.66, 1);
     }
 
     /**
@@ -18,7 +16,11 @@ public class ArmModule {
      * @param state How far up or down the arm is (0-1) 0 = inside, 1 = outside
      */
     public void setState(float state) {
-        armLeft.setPosition(state);
-        armRight.setPosition(state);
+        arm.setPosition(state);
+    }
+
+    public void wiggle() {
+        arm.setPosition(0.75);
+        arm.setPosition(1);
     }
 }

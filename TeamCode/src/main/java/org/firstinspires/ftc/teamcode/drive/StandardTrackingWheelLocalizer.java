@@ -31,11 +31,11 @@ public class StandardTrackingWheelLocalizer extends ThreeTrackingWheelLocalizer 
     public static double WHEEL_RADIUS = 1.18110236; // in
     public static double GEAR_RATIO = 1; // output (wheel) speed / input (encoder) speed
 
-    public static double LATERAL_DISTANCE = -15.42; // in; distance between the left and right wheels
+    public static double LATERAL_DISTANCE = -16.28; // in; distance between the left and right wheels
     public static double FORWARD_OFFSET = 0; // in; offset of the lateral wheel
 
     public static double X_MULTIPLIER = 1.00457267; // Multiplier in the X direction
-    public static double Y_MULTIPLIER = 1.00509247; // Multiplier in the Y direction
+    public static double Y_MULTIPLIER = 1.00509247 * 1.00896861; // Multiplier in the Y direction
     private Encoder leftEncoder, rightEncoder, frontEncoder;
 
     private List<Integer> lastEncPositions, lastEncVels;
